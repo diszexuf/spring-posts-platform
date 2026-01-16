@@ -29,6 +29,7 @@ dependencies {
     implementation("org.springframework.kafka:spring-kafka")
     implementation("redis.clients:jedis:5.1.4")
     implementation("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 
     runtimeOnly("org.postgresql:postgresql")
 
