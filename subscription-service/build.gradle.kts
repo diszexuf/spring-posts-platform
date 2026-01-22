@@ -28,6 +28,7 @@ dependencies {
     implementation("org.springframework.kafka:spring-kafka")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
     implementation("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")

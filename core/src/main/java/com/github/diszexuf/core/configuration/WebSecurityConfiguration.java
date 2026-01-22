@@ -46,7 +46,7 @@ public class WebSecurityConfiguration {
                                            AuthenticationManager authenticationManager) throws Exception {
         http.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.GET, "/api/v1/posts").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/v1/posts/filter").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/v1/sunscriptions/followers").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/v1/subscriptions/followers").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
                 .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)

@@ -41,7 +41,7 @@ public class PostService {
         return postRepository.findAll(PostSpecification.withFilter(filter), pageable);
     }
 
-    @CacheEvict(value = "posts")
+    @CacheEvict(value = "posts", allEntries = true)
     @Transactional
     public Post create(Post post, Long authorId) {
         log.info("Create new post");
@@ -60,12 +60,12 @@ public class PostService {
         return newPost;
     }
 
-    @CacheEvict(value = "posts")
+    @CacheEvict(value = "posts", allEntries = true)
     @Transactional
     public void deleteById(Long postId, Long userId) {
         log.info("Delete post by id");
 
-        if (!postRepository.existsById(postId)) {
+        if (!postRepository.existsByAuthorIdAndId(userId, postId)) {
             log.error("Exception on delete. PostId: {}, UserId: {}", postId, userId);
             throw new GeneralException("Exception trying to delete post with id: " + postId);
         }
